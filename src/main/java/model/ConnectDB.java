@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 public class ConnectDB {
   private static String url = "jdbc:mysql://localhost:3306/studentmanagement?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
   private static String user = "root";
-  private static String pass = "12345678";
+  private static String pass = "";
 
   static public Connection getConnectDB() throws Exception, ClassNotFoundException {
     Class.forName("com.mysql.cj.jdbc.Driver");
