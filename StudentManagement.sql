@@ -1,5 +1,10 @@
-create database studentmanagement;
+create database studentmanagement character set utf8mb4 collate utf8mb4_unicode_ci;
 use studentmanagement;
+
+-- teacher, student, class tham chiếu vòng lẫn nhau,
+-- nên tạm tắt kiểm tra khóa ngoại trong lúc tạo bảng.
+set foreign_key_checks = 0;
+
 create table teacher(
 	id int primary key auto_increment,
     name nvarchar(100) not null,
@@ -43,13 +48,20 @@ create table user(
 	id int primary key auto_increment,
     username varchar(50) not null unique,
     password varchar(50) not null,
-    role varchar(5));
+    role varchar(10),
+    email varchar(50),
+    id_student int,
+    foreign key(id_student) references student(id) on delete set null);
 create table registerclass(
-	name nvarchar(50), 
+	id_user int,
+	name nvarchar(50),
     birthday date,
     sex varchar(6),
     phone varchar(10),
     address nvarchar(100),
     id_class int,
-	foreign key(id_student) references student(id) on delete SET NULL
+	foreign key(id_user) references user(id) on delete cascade,
+	foreign key(id_class) references class(id) on delete set null
 );
+
+set foreign_key_checks = 1;
