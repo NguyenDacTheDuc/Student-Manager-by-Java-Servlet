@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/34928461/README.md)
 # 🎓 Student Manager
 
 A web application for managing a school's students, teachers, classes, departments, subjects and grades. Admins manage the data, and registered users get a student portal where they can browse classes, check scores and apply to join a class.
